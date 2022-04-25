@@ -1,6 +1,6 @@
-python manage.py makemigrations
-python manage.py migrate cpovc_auth
-python manage.py migrate
+# python manage.py makemigrations
+# python manage.py migrate cpovc_auth
+# python manage.py migrate
 python manage.py loaddata cpovc_auth/fixtures/initial_data.json
 python manage.py loaddata cpovc_main/fixtures/initial_user.json
 python manage.py loaddata cpovc_main/fixtures/initial_geo.json
@@ -17,7 +17,7 @@ python manage.py loaddata cpovc_main/fixtures/eligibility.json
 python manage.py loaddata cpovc_main/fixtures/olmis_services.csv.json
 python manage.py loaddata cpovc_main/fixtures/ovc_form_type_id.json
 
-python manage.py createsuperuser
+# python manage.py createsuperuser
 
 python manage.py loaddata cpovc_main/fixtures/initial_org_unit.csv.json
 python manage.py loaddata cpovc_main/fixtures/initial_org_unit_contact.csv.json

@@ -357,3 +357,8 @@ def csrf_failure(request, reason):
         raise e
 
 
+def new_gradutionform(request):
+    if request.method == 'POST':
+        print("We want to post data")
+    else:
+        return render(request, 'forms/new_graduation.html')

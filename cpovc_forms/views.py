@@ -9997,3 +9997,11 @@ def new_dreamsform(request, id):
                   'forms/new_dreamsform.html',
                   {'form': form, 'init_data': init_data,
                    'vals': vals})
+
+# @ian development
+# render graduation list view
+def new_gradutionform(request):
+    if request.method == 'POST':
+        print(request.inlineRadioOptions)
+    else:
+        return render(request,'forms/new_graduation.html')

@@ -114,6 +114,9 @@ urlpatterns = [
     path('d/services/', cpovc_dashboard.views.ovc_dashboard_services, name='services_dash'),
     path('d/cm/', cpovc_dashboard.views.ovc_dashboard_cm, name='cm_dash'),
     path('api/v2/', include(dashboard_api_urls)),
+
+    #get view graduation list
+    # path('ovc/graduationlist/', views.new_gradutionform, name='new_gradutionform'),
 ]
 
 handler400 = 'cpims.views.handler_400'
