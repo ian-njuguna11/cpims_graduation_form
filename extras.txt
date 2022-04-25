@@ -1,0 +1,15 @@
+Setting new schema
+
+Make new dump
+psql -h localhost -U <user> -d <db>  <  <dump>
+
+Delete table in db [django_migrations]
+
+makemigrations
+
+try ./,amage.py migrate --fake
+
+stack overflow link:
+https://stackoverflow.com/questions/44651760/django-db-migrations-exceptions-inconsistentmigrationhistory
+
+Find dump in parent directory.
