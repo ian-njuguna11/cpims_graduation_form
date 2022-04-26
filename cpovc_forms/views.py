@@ -23,7 +23,7 @@ from cpovc_forms.forms import (
     OVC_CaseEventForm, DocumentsManager, OVCSchoolForm, OVCBursaryForm,
     BackgroundDetailsForm, OVC_FTFCForm, OVCCsiForm, OVCF1AForm, OVCHHVAForm, Wellbeing,
     GOKBursaryForm, CparaAssessment, CparaMonitoring, CasePlanTemplate, WellbeingAdolescentForm, HIV_SCREENING_FORM,
-    HIV_MANAGEMENT_ARV_THERAPY_FORM, HIV_MANAGEMENT_VISITATION_FORM, DREAMS_FORM, NewGraduationMonitoringForm)
+    HIV_MANAGEMENT_ARV_THERAPY_FORM, HIV_MANAGEMENT_VISITATION_FORM, DREAMS_FORM, NewGraduationMonitoringForm, sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft)
 
 from .models import (
     OVCEconomicStatus, OVCFamilyStatus, OVCReferral, OVCHobbies, OVCFriends,
@@ -10027,12 +10027,30 @@ def new_graduation_monitoring_form(request, id):
     new_graduation_form_month_1 = NewGraduationMonitoringForm(prefix="month_1")
     new_graduation_form_month_2 = NewGraduationMonitoringForm(prefix="month_2")
     new_graduation_form_month_3 = NewGraduationMonitoringForm(prefix="month_3")
+    
     recommended_action = NewGraduationMonitoringForm(request.POST).RecommendActionForm(request.POST)
     return render(request=request, template_name='forms/new_graduation.html',
                   context={'new_graduation_form_month_1': new_graduation_form_month_1,
                            'new_graduation_form_month_2': new_graduation_form_month_2,
                            'new_graduation_form_month_3': new_graduation_form_month_3,
                            'recommended_action': recommended_action})
+                           
+def sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request, id):
+    if request.method == 'POST':
+        sinovuyoteen = sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request.POST)
+        child = RegPerson.objects.get(id=id)
+        if sinovuyoteen.is_valid():
+            sinovuyoteen.save()
+            messages.success(request, 'Form Saved Successfully!')
+        else:
+            messages.error(request, 'Error saving form!')
+
+        render(request=request, template_name='forms/new_sinovuyoteen.html',
+               context={'sinovuyo_teen': sinovuyoteen})
+
+    sinovuyoteen = sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft()
+    
+    return render(request=request, template_name='forms/new_sinovuyoteen.html'})
 
 
         

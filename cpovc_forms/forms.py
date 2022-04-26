@@ -8217,4 +8217,211 @@ class NewGraduationMonitoringForm(forms.Form):
                    'class': 'form-control',
                    'id': 'recommended_action',
                    'rows': '2'}))
+                   
+                   
+class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
+    CHOICES_READ  = ((0, 'Cannot read at all'), 
+        (1, 'Can read but with lots of difficulty'), 
+        (2,'Can read with a little difficulty'),
+        (3, 'Can read easily'))
+        
+    YES_NO_CHOICES = ((1,'Yes'),(0,'No'))
+    
+    Mother_Mortality_choices = ((0,'Yes'),(1,'No, she passed away'),(2,'No, she lives elsewhere'))
+    
+    Father_Mortality_choices = ((0,'Yes'),(1,'No, he passed away'),(2,'No, he lives elsewhere'))
+    
+    SECTION_TWO = ((0, 'Never'), (1,'Almost never'), (2, 'Sometimes'), (3, 'Often'), (4, 'Always') )
+    
+    SECTION_THREE_MY_BEHAVIOUR = ((0, 'Not true'), (1, 'Somewhat true'), (2, 'Very true') )
+    
+    SECTION_DISCIPLINE_FROM_MY_CAREGIVER =( (0, 'Never'),
+                                            (1, '1 time'),
+                                            (2, '2 times'),
+                                            (3, '3 times'),
+                                            (4, '4 times'),
+                                            (5, '5 times'),
+                                            (6, '6 times'),
+                                            (7, '7 times'),
+                                            (8, '8 times'))
+                                            
+    SECTION_FEELING_SAD = ((0, 'Rarely or none of the time less than 1 day'),
+                            (1, 'Some or a little of the time (1-2 days)'),
+                            (2, 'Occasionally or a moderate amount of time (3-4 days)'),
+                            (3, 'Most or all of the time (5-7 days)'),)
+      
+    Canyouread = forms.ChoiceField(
+        choices=CHOICES_READ,
+         widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+        )
+    )
+
+    Do_You_Have_Any_Children_Of_Your_Own = forms.ChoiceField(
+         choices=YES_NO_CHOICES,
+         widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+        )   
+    )
+    
+    Do_You_Live_With_Your_Biological_Mother = forms.ChoiceField(
+        choices=Mother_Mortality_choices,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+        ))
+
+    Do_You_Live_With_Your_Biological_father = forms.ChoiceField(
+        choices=Father_Mortality_choices,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+        ))
+
+    Do_You_Have_Any_Form_Of_Disability = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+
+    Q9 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q10 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q11 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q12 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+            
+    Q13 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+            
+    Q14 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+            
+    Q15 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+            
+    Q16 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+            
+    Q17 = forms.ChoiceField(
+        choices=YES_NO_CHOICES,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+            
+    Q18 = forms.ChoiceField(
+        choices=SECTION_TWO,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q19 = forms.ChoiceField(
+        choices=SECTION_TWO,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+    Q20 = forms.ChoiceField(
+        choices=SECTION_TWO,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q21 = forms.ChoiceField(
+        choices=SECTION_TWO,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q22 = forms.ChoiceField(
+        choices=SECTION_THREE_MY_BEHAVIOUR,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q23 = forms.ChoiceField(
+        choices=SECTION_THREE_MY_BEHAVIOUR,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+               
+    Q24 = forms.ChoiceField(
+        choices=SECTION_DISCIPLINE_FROM_MY_CAREGIVER,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+    Q25 = forms.ChoiceField(
+        choices=SECTION_DISCIPLINE_FROM_MY_CAREGIVER,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q26 = forms.ChoiceField(
+        choices=SECTION_DISCIPLINE_FROM_MY_CAREGIVER,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q27 = forms.ChoiceField(
+        choices=SECTION_DISCIPLINE_FROM_MY_CAREGIVER,
+        widget=forms.RadioSelect(
+            # renderer=RadioCustomRenderer,
+            ))
+            
+    Q28 = forms.ChoiceField(
+    choices=SECTION_FEELING_SAD,
+    widget=forms.RadioSelect(
+        # renderer=RadioCustomRenderer,
+        ))
+        
+    Q29 = forms.ChoiceField(
+    choices=SECTION_FEELING_SAD,
+    widget=forms.RadioSelect(
+        # renderer=RadioCustomRenderer,
+        ))
+    Q30 = forms.ChoiceField(
+    choices=SECTION_FEELING_SAD,
+    widget=forms.RadioSelect(
+        # renderer=RadioCustomRenderer,
+        ))
+            
+
+class RecommendActionForm(forms.Form):
+    recommended_action = forms.CharField(widget=forms.Textarea(
+        attrs={'placeholder': _('Recommended_action'),
+                'class': 'form-control',
+                'id': 'recommended_action',
+                'rows': '2'}))
 

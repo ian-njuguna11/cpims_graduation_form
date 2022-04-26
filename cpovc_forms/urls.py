@@ -176,5 +176,8 @@ urlpatterns = [
 
     # New Graduation monitoring tool
     re_path('new_graduation_monitoring_form/new/(?P<id>\d+)/', views.new_graduation_monitoring_form, name='new_graduation_monitoring_form'),
+    
+    # Teen Snavyo 
+    re_path('new_sinovuyoteen_form/new/(?P<id>\d+)/', views.sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft, name='new_sinovu_form'),
 
 ]

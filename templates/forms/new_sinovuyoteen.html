@@ -76,24 +76,24 @@ sinovuyoteen{% extends 'base.html' %}
                         <ol>
 
                             <li>
-                                DOMAIN: HEALTHY
+                                SECTION 1: BACKGROUND DETAILS ABOUT THE TEEN
                                 <small></small>
                             </li>
 
                             <li>
-                                DOMAIN: STABLE
+                                SECTION 2: MY RELATIONSHIP WITH MY CAREGIVER
                                 <small></small>
                             </li>
                             <li>
-                                DOMAIN: SAFE  
+                                SECTION 3: MY BEHAVIOUR  
                                     <small></small>
                              </li>
                              <li>
-                                DOMAIN: SCHOOLED
+                                SECTION 4: DISCIPLINE FROM MY CAREGIVER
                                     <small></small>
                             </li>
                             <li>
-                                Recommended action 
+                                SECTION 5: FEELING SAD 
                                 <small></small>
                             </li>
                             
@@ -104,35 +104,26 @@ sinovuyoteen{% extends 'base.html' %}
 
                             <table class="table">
                                 <thead>
-                                  <tr>
+                                  {% comment %} <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Month 1</th>
                                     <th scope="col">Month 2</th>
                                     <th scope="col">Month 3</th>
-                                  </tr>
+                                  </tr> {% endcomment %}
                                 </thead>
                                 <tbody>
                                   <tr>
                                     <th scope="row">
-                                        <h3 for='l' style="margin-top: 0;color:#55518a"> Benchmark 1: <small>All children, adolescents, and caregivers in the household have known HIV status or a test is not required based on risk assessment </small></h3>
+                                        <h3 for='l' style="margin-top: 0;color:#55518a"> Can you read </h3>
                                     </th>
                                     <td>                            
 
                                         <div class="form-check form-check-inline">
 
-                                            {{ new_graduation_form_month_1.BNMRK_1}}
+                                            {{ sinovuyo_teen.Canyouread }}
                                           </div>
                                     <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_2.BNMRK_1}}
-                                          </div>
-
-                                    </td>
-                                    <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_3.BNMRK_1}}
-                                          </div></td>
-                                    </td>
+                                        
                                   </tr>
                                   
                                 </tbody>
@@ -141,25 +132,17 @@ sinovuyoteen{% extends 'base.html' %}
                                 <tbody>
                                   <tr>
                                     <th scope="row">
-                                        <h3 for='l' style="margin-top: 0;color:#55518a">Benchmark 2: <small>All HIV+ children, adolescents, and caregivers in the household with a viral load result documented in the medical record and/or laboratory information systems (LIS) have been virally suppressed for the last 12 months. </small></h3>
+                                        <h3 for='l' style="margin-top: 0;color:#55518a"> Do you have any children of your own? </h3>
                                     </th>
                                     <td>
 
                                         <div class="form-check form-check-inline">
 
-                                            {{ new_graduation_form_month_1.BNMRK_2}}
-                                          </div>
-                                    <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_2.BNMRK_2}}
-                                          </div>
+                                            {{ sinovuyo_teen.Do_You_Have_Any_Children_Of_Your_Own }}
 
-                                    </td>
+                                          </div>
                                     <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_3.BNMRK_2}}
-                                          </div></td>
-                                    </td>
+                                        
                                   </tr>
 
                                 </tbody>
@@ -167,25 +150,16 @@ sinovuyoteen{% extends 'base.html' %}
                                     <tbody>
                                   <tr>
                                     <th scope="row">
-                                        <h3 style="margin-top: 0;color:#55518a"> Benchmark 3: <small> All HIV+ children, adolescents, and caregivers in the household with a viral load result documented in the medical record and/or laboratory information systems (LIS) have been virally suppressed for the last 12 months.</small></h3>
+                                        <h3 style="margin-top: 0;color:#55518a"> Do you live with your biological mother?</h3>
                                     </th>
                                     <td>
 
                                         <div class="form-check form-check-inline">
 
-                                            {{ new_graduation_form_month_1.BNMRK_3}}
-                                          </div>
-                                    <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_2.BNMRK_3}}
-                                          </div>
+                                            {{ sinovuyo_teen.Do_You_Live_With_Your_Biological_Mother }}
 
-                                    </td>
+                                          </div>
                                     <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_3.BNMRK_3}}
-                                          </div></td>
-                                    </td>
                                   </tr>
 
                                 </tbody>
@@ -193,25 +167,168 @@ sinovuyoteen{% extends 'base.html' %}
                                     <tbody>
                                 <tr>
                                     <th scope="row">
-                                        <h3 style="margin-top: 0;color:#55518a"> Benchmark 4: <small>No children < 5 years in the household are undernourished</small></h3></th>
+                                        <h3 style="margin-top: 0;color:#55518a"> Do you live with your biological father? </h3>
+                                    </th>
 
-                            <td>
+                                    <td>
 
                                         <div class="form-check form-check-inline">
 
-                                            {{ new_graduation_form_month_1.BNMRK_4}}
+                                            {{ sinovuyo_teen.Do_You_Live_With_Your_Biological_father }}
+
                                           </div>
                                     <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_2.BNMRK_4}}
-                                          </div>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> Do you have any form of disability? </h3>
+                                    </th>
 
-                                    </td>
                                     <td>
+
                                         <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_3.BNMRK_4}}
-                                          </div></td>
-                                    </td>
+
+                                            {{ sinovuyo_teen.Do_You_Have_Any_Form_Of_Disability }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a">In the last month, did your family run out of money for food or essentials such as school fees, medical expenses, rent expenses, clothes? </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q9 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> In the last month have there been any arguments in the home with shouting, hitting, sexual violence or threats </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q10 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a">In the past month has there been an adult who was unwell – in hospital or in bed a lot of the time?</h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q11 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> In the past month is there a child who has been unwell? </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q12 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> In the past term did you ever had to miss school more than 15 days because you were unwell?  </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q13 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> Are you aware of your HIV status? </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q14 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> Has your caregiver ever discussed HIV prevention/sexual and reproductive health with you?  </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q15 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> Do you eat two or more meals a day? </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q16 }}
+
+                                          </div>
+                                    <td>
+                                </tr>
+                                
+                                <tr>
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> In the past month are there times you have gone a day without eating a meal? </h3>
+                                    </th>
+
+                                    <td>
+
+                                        <div class="form-check form-check-inline">
+
+                                            {{ sinovuyo_teen.Q16 }}
+
+                                          </div>
+                                    <td>
                                 </tr>
                                 </tbody>
                                 </table>
@@ -222,34 +339,54 @@ sinovuyoteen{% extends 'base.html' %}
                         <div class="wizard-step-2">
                             <table class="table">
                                 <thead>
-                                  <tr>
+                                  {% comment %} <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Month 1</th>
                                     <th scope="col">Month 2</th>
                                     <th scope="col">Month 3</th>
-                                  </tr>
+                                  </tr> {% endcomment %}
                                 </thead>
                                 <th scope="row">
-                                    <h3 style="margin-top: 0;color:#55518a"> Benchmark 5: <small>Caregivers are able to access money (without selling productive assets) to pay for school fees, medical costs (buy medicine, transport to facility etc), legal and other administrative fees (related to guardianship, civil registration, or inheritance) for children 0-17 years </small></h3></th>
+                                    <h3 style="margin-top: 0;color:#55518a"> Do you spend time to discuss your needs (wishes, aspirations, studies, achievements) with your caregiver? 5: </h3>
+                                </th>
 
                             <div class="form-check form-check-inline">
                                 <td>
 
-                                        <div class="form-check form-check-inline">
+                                    <div class="form-check form-check-inline">
 
-                                            {{ new_graduation_form_month_1.BNMRK_5}}
+                                        {{ sinovuyo_teen.Q18 }}
+
+                                      </div>
+                                <td>
+                                    
+                                    <th scope="row">
+                                        <h3 style="margin-top: 0;color:#55518a"> Are you subjected to any form of discipline if you fail to adhere to your family rules? </h3>
+                                    </th>
+    
+                                <div class="form-check form-check-inline">
+                                    <td>
+    
+                                        <div class="form-check form-check-inline">
+    
+                                            {{ sinovuyo_teen.Q17 }}
+    
                                           </div>
                                     <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_2.BNMRK_5}}
-                                          </div>
-
-                                    </td>
-                                    <td>
-                                        <div class="form-check form-check-inline">
-                                            {{ new_graduation_form_month_3.BNMRK_5}}
-                                          </div></td>
-                                    </td>
+                                        
+                                        <th scope="row">
+                                            <h3 style="margin-top: 0;color:#55518a"> I feel generally free to disclose something that bothers me to my caregiver? </h3>
+                                        </th>
+        
+                                    <div class="form-check form-check-inline">
+                                        <td>
+        
+                                            <div class="form-check form-check-inline">
+        
+                                                {{ sinovuyo_teen.Q17 }}
+        
+                                              </div>
+                                        <td>
                               </div>
                             </table>
 
