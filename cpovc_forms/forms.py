@@ -8219,7 +8219,7 @@ class NewGraduationMonitoringForm(forms.Form):
                    'rows': '2'}))
                    
                    
-class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
+class SinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
     CHOICES_READ  = ((0, 'Cannot read at all'), 
         (1, 'Can read but with lots of difficulty'), 
         (2,'Can read with a little difficulty'),
@@ -8252,9 +8252,7 @@ class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
       
     Canyouread = forms.ChoiceField(
         choices=CHOICES_READ,
-         widget=forms.RadioSelect(
-            # renderer=RadioCustomRenderer,
-        )
+        
     )
 
     Do_You_Have_Any_Children_Of_Your_Own = forms.ChoiceField(
@@ -8266,15 +8264,11 @@ class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
     
     Do_You_Live_With_Your_Biological_Mother = forms.ChoiceField(
         choices=Mother_Mortality_choices,
-        widget=forms.RadioSelect(
-            # renderer=RadioCustomRenderer,
-        ))
+    )
 
     Do_You_Live_With_Your_Biological_father = forms.ChoiceField(
         choices=Father_Mortality_choices,
-        widget=forms.RadioSelect(
-            # renderer=RadioCustomRenderer,
-        ))
+    )
 
     Do_You_Have_Any_Form_Of_Disability = forms.ChoiceField(
         choices=YES_NO_CHOICES,
@@ -8343,10 +8337,7 @@ class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
             
             
     Q18 = forms.ChoiceField(
-        choices=SECTION_TWO,
-        widget=forms.RadioSelect(
-            # renderer=RadioCustomRenderer,
-            ))
+        choices=SECTION_TWO)
             
     Q19 = forms.ChoiceField(
         choices=SECTION_TWO,
@@ -8366,10 +8357,7 @@ class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
             ))
             
     Q22 = forms.ChoiceField(
-        choices=SECTION_THREE_MY_BEHAVIOUR,
-        widget=forms.RadioSelect(
-            # renderer=RadioCustomRenderer,
-            ))
+        choices=SECTION_THREE_MY_BEHAVIOUR)
             
     Q23 = forms.ChoiceField(
         choices=SECTION_THREE_MY_BEHAVIOUR,
@@ -8378,10 +8366,8 @@ class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
             ))
                
     Q24 = forms.ChoiceField(
-        choices=SECTION_DISCIPLINE_FROM_MY_CAREGIVER,
-        widget=forms.RadioSelect(
-            # renderer=RadioCustomRenderer,
-            ))
+        choices=SECTION_DISCIPLINE_FROM_MY_CAREGIVER)
+    
     Q25 = forms.ChoiceField(
         choices=SECTION_DISCIPLINE_FROM_MY_CAREGIVER,
         widget=forms.RadioSelect(
@@ -8401,10 +8387,7 @@ class sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(forms.Form):
             ))
             
     Q28 = forms.ChoiceField(
-    choices=SECTION_FEELING_SAD,
-    widget=forms.RadioSelect(
-        # renderer=RadioCustomRenderer,
-        ))
+    choices=SECTION_FEELING_SAD)
         
     Q29 = forms.ChoiceField(
     choices=SECTION_FEELING_SAD,

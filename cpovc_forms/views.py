@@ -23,7 +23,7 @@ from cpovc_forms.forms import (
     OVC_CaseEventForm, DocumentsManager, OVCSchoolForm, OVCBursaryForm,
     BackgroundDetailsForm, OVC_FTFCForm, OVCCsiForm, OVCF1AForm, OVCHHVAForm, Wellbeing,
     GOKBursaryForm, CparaAssessment, CparaMonitoring, CasePlanTemplate, WellbeingAdolescentForm, HIV_SCREENING_FORM,
-    HIV_MANAGEMENT_ARV_THERAPY_FORM, HIV_MANAGEMENT_VISITATION_FORM, DREAMS_FORM, NewGraduationMonitoringForm, sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft)
+    HIV_MANAGEMENT_ARV_THERAPY_FORM, HIV_MANAGEMENT_VISITATION_FORM, DREAMS_FORM, NewGraduationMonitoringForm, SinovuyoteenPreAndPostAssesmnetRevisedFinalDraft)
 
 from .models import (
     OVCEconomicStatus, OVCFamilyStatus, OVCReferral, OVCHobbies, OVCFriends,
@@ -10036,8 +10036,12 @@ def new_graduation_monitoring_form(request, id):
                            'recommended_action': recommended_action})
                            
 def sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request, id):
+    child = RegPerson.objects.get(id=id)
+    care_giver = RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id)
+    house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
+
     if request.method == 'POST':
-        sinovuyoteen = sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request.POST)
+        sinovuyoteen = SinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request.POST)
         child = RegPerson.objects.get(id=id)
         if sinovuyoteen.is_valid():
             sinovuyoteen.save()
@@ -10048,9 +10052,13 @@ def sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request, id):
         render(request=request, template_name='forms/new_sinovuyoteen.html',
                context={'sinovuyo_teen': sinovuyoteen})
 
-    sinovuyoteen = sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft()
-    
-    return render(request=request, template_name='forms/new_sinovuyoteen.html'})
+    sinovuyoteen = SinovuyoteenPreAndPostAssesmnetRevisedFinalDraft() 
+    return render(request=request, template_name='forms/new_sinovuyoteen.html', context={
+        'child': child,
+        'sinovuyo_teen':sinovuyoteen,
+        'care_giver': care_giver,
+        'house_hold': house_hold
+    })
 
 
         

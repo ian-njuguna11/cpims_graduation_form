@@ -180,4 +180,7 @@ urlpatterns = [
     # Teen Snavyo 
     re_path('new_sinovuyoteen_form/new/(?P<id>\d+)/', views.sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft, name='new_sinovu_form'),
 
+
+#     re_path('new_sinovuyoteen_form/new/(?P<id>\d+)/', views.sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft, name='new_sinovu_form'),
+
 ]
