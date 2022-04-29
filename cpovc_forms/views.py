@@ -36,7 +36,7 @@ from .models import (
     OVCFamilyCare, OVCCaseEventSummon, OVCCareEvents, OVCCarePriority,
     OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareWellbeing, OVCCareCpara, OVCCareQuestions,
     OVCCareForms, OVCExplanations, OVCCareF1B,
-    OVCCareBenchmarkScore, OVCMonitoring, OVCHouseholdDemographics, OVCHivStatus, OVCHIVManagement, OVCHIVRiskScreening)
+    OVCCareBenchmarkScore, OVCMonitoring, OVCHouseholdDemographics, OVCHivStatus, OVCHIVManagement, OVCHIVRiskScreening, SinovuyuTeenPreAndPostAssesment)
 from cpovc_ovc.models import OVCRegistration, OVCHHMembers, OVCHealth, OVCHouseHold, OVCFacility
 from cpovc_main.functions import (
     get_list_of_org_units, get_dict, get_vgeo_list, get_vorg_list,
@@ -8856,7 +8856,7 @@ def new_cpara(request, id):
             })
 
     return render(request,
-                  'forms/new_cpara.html',
+                'forms/new_cpara.html',
                   {
                       'form': form,
                       'person': id,
@@ -10039,15 +10039,29 @@ def sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request, id):
     child = RegPerson.objects.get(id=id)
     care_giver = RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id)
     house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
+    reg_geo = RegPersonsGeo.objects.get(id=id)
 
     if request.method == 'POST':
+        import pdb
+        data = request.POST
+        Canyouread=data['Canyouread']
+        Do_You_Have_Any_Children_Of_Your_Own=data['Do_You_Have_Any_Children_Of_Your_Own']
         sinovuyoteen = SinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request.POST)
         child = RegPerson.objects.get(id=id)
-        if sinovuyoteen.is_valid():
-            sinovuyoteen.save()
+        if data:
+            # assment_type = models.IntegerField(default=0)
+            # date_assment = models.DateField()
+            # SinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(data).save()
+            
+            qry = SinovuyuTeenPreAndPostAssesment(
+                assment_type = data['TYPE_ASSESSMENT'],
+                # date_of_assessment = data['date_of_assessment']
+            ).save()
             messages.success(request, 'Form Saved Successfully!')
         else:
             messages.error(request, 'Error saving form!')
+        pdb.set_trace()
+        
 
         render(request=request, template_name='forms/new_sinovuyoteen.html',
                context={'sinovuyo_teen': sinovuyoteen})

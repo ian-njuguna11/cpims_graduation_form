@@ -8,9 +8,6 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 # from cpovc_main.models import SetupGeography
 from cpovc_auth.models import AppUser
-
-
-
 class RegOrgUnit(models.Model):
     """Model for Organisational Units details."""
 

@@ -10,6 +10,9 @@
 <link href="{% static 'plugins/bootstrap-wizard/css/bwizard.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/jquery.tagit.css' %}" rel="stylesheet">
 <link href="{% static 'css/bootstrap-table.min.css' %}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 {% endblock %}
 
 {% block javascript_code%}
@@ -35,7 +38,7 @@
       display: table;
       clear: both;
     }
-    </style>>
+    </style>
 
 <!-- begin breadcrumb -->
 <ol class="breadcrumb pull-right">
@@ -43,6 +46,18 @@
     <li class="active">Forms</li>
 </ol>
 <!-- end breadcrumb -->
+
+<!-- <form method="POST" enctype="multipart/form-data"> -->
+ 
+    <!-- <!- Security token -> -->
+    <!-- {% csrf_token %} -->
+ 
+    <!-- <!- Using the formset -> -->
+    <!-- {{ sinovuyo_teen.media }} -->
+    <!-- {{ sinovuyo_teen.as_p }} -->
+     
+    <!-- <input type="submit" value="Submit"> -->
+<!-- </form> -->
 
 
 
@@ -81,19 +96,102 @@
                     {% endif %}</b>
         </b> 
     </p>
+    <form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true"
+                    name="form-wizard-hhva" id="new_hhva">
+        {% csrf_token %}
+        
+
+        <div class="col-md-12">
+            <!-- begin panel -->
+        <div style="overflow-x: auto; min-height: 300px;">
+            <div class="panel panel-inverse">
+                <div style="background-color: rgb(17, 170, 170)" class="panel-heading">
+                    <div class="panel-heading-btn">
+                    </div>
+                    <h4 class="panel-title"> Sinovuyo Teen Pre And Post Assesment Revised Final Draft Form  </h4>
+                </div>
+            <div class="panel panel-default">
+                <div  class="panel panel-inverse">
+                    <div id="case-events"  class="table-responsive">
+                        <table id="" class="table table-striped ">
+                            <div class="" >
+                                <h3 class="" style="color: dimgrey;"><b>  </b></h3>
+                            </div>
+                                        <tbody>
+                                            <tr>
+                                                <td><P style="padding-left: 5px;"><strong>Care giver name:</strong> {{care_giver.first_name}} {{care_giver.surname}}</p>
+                                                    <P style="padding-left: 5px;"><strong>Age:</strong> {{care_giver.age}}</p></td>
+                                                        <td><P><strong>Gender:</strong> {{care_giver_gender}}</p>
+                                                            <P><strong>Designation:</strong> {{care_giver.designation}}</p></td><td></td>
+
+                                            </tr>
+                                                <td><strong>Type of assessment: </strong>
+                                                {{ sinovuyo_teen.TYPE_ASSESSMENT }}
+                                                </td>
+
+                                                <td><strong>Date of assessment: </strong>
+                                                    {{ sinovuyo_teen.date_of_assessment }}
+                                                    
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                <p>&nbsp;</p>
+                        </table>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+        <!-- {% if messages %}
+            <ul class="messages">
+        {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                <!- This is a info alert—check it out! ->
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+
+            </div>
+        {% endfor %}
+            </ul>
+        {% endif %} -->
+
+        {% if messages %}
+            {% for message in messages %}
+            {% if 'error' in message.tags %}
+                <div id="messages" class="alert alert-danger fade in">
+                <span class="close" data-dismiss="alert">×</span>
+                <i class="fa fa-info fa-2x pull-left"></i>
+            {% else %}
+                <div id="messages" class="alert alert-success fade in">
+                <span class="close" data-dismiss="alert">×</span>
+                <i class="fa fa-check fa-2x pull-left"></i>
+            {% endif %}    
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+        {% endif %}
+        <div id="message" class="alert alert-success fade in" style="display: none">
+            <span class="close" data-dismiss="alert">×</span>
+            <i class="fa fa-check fa-2x pull-left"></i>
+        </div>
         
 
         <div class="panel panel-inverse">
             <div style="background-color: rgb(17, 170, 170)" class="panel-heading">
                 <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-plus"></i></a>
                 </div>  
                 <h4 class="panel-title"> Monitoring Tool for OVC Households Reaching Case Plan Achievement Instructions: </h4>
+                <!-- {% if messages %}
+                {% for msg in messages %}
+                <p>{{msg}}</p>
+                {% endfor %}
+                {% endif %} -->
             </div>
             <div class="panel-body">
-                <form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true"
-                    name="form-wizard-hhva" id="new_hhva">
+                
                     <!-- <div class="panel-body">
                         <div class="card">
                         <div style="background-color: rgb(0, 164, 164); color: white;" class="card-header">
@@ -108,14 +206,6 @@
                      -->
 
 
-                    {% csrf_token %}
-                    {% if messages %}
-                        <ul class="messages">
-                    {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                        </ul>
-                    {% endif %}
                     <div id="wizard-dreamsform">
                         <ol>
 
@@ -143,7 +233,7 @@
                             </li> -->
                             
                         </ol>
-
+                        <form method="post" >
                         <!-- begin wizard step-1 -->
                         <div class="wizard-step-1">
                             
@@ -155,8 +245,8 @@
                                     <div class="panel panel-info">
                                         <div style="background-color: rgb(17, 170, 170)" class="panel-heading">
                                             <div class="panel-heading-btn">
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
+                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i style="width: 30%; height: 30%;" class="fa fa-plus"></i></a>
                                             </div>                          
                                             <h4 style="color:bro" class="panel-title"><b>BACKGROUND DETAILS ABOUT THE TEEN </b></h4>                    
                                         </div>
@@ -170,12 +260,24 @@
                                                             <table class="table">
                                                                 <tbody>
                                                                     <th scope="row">
+                                                                        <h4 for='l' style="margin-top: 0;color:#55518a">Q1: <small style="color:#55518a; font-size-adjust: 0.68;">Age?</small></h4>
+                                                                    </th>
+                                                                    <td>                            
+                                
+                                                                        <div class="form-check form-check-inline">
+                                                                            {{ sinovuyo_teen.bd_age }}
+                                                                        </div>
+                                                                    <td>
+                                                                </tbody>
+
+                                                                <tbody>
+                                                                    <th scope="row">
                                                                         <h4 for='l' style="margin-top: 0;color:#55518a">Q1: <small style="color:#55518a; font-size-adjust: 0.68;">Can you read?</small></h4>
                                                                     </th>
                                                                     <td>                            
                                 
                                                                         <div class="form-check form-check-inline">
-                                                                            {{ sinovuyo_teen.Canyouread }}
+                                                                            {{ sinovuyo_teen.bd_read }}
                                                                         </div>
                                                                     <td>
                                                                 </tbody>
@@ -249,7 +351,7 @@
                                                                 
                                                                 <tr>
                                                                     <th scope="row">
-                                                                        <h4 style="margin-top: 0;color:#55518a">Q6: <small style="color:#55518a; font-size-adjust: 0.68;"></smallstyle>In the last month, did your family run out of money for food or essentials such as school fees,  <br> <br> &nbsp;&nbsp; medical expenses, rent expenses, clothes?</small></h4>
+                                                                        <h4 style="margin-top: 0;color:#55518a">Q6: <small style="color:#55518a; font-size-adjust: 0.68;"></smallstyle>In the last month, did your family run out of money for food or essentials such as school fees, medical expenses, rent expenses, clothes?</small></h4>
                                                                     </th>
                                 
                                                                     <td>
@@ -362,7 +464,7 @@
                                 
                                                                         <div class="form-check form-check-inline">
                                 
-                                                                            {{ sinovuyo_teen.Q16 }}
+                                                                            {{ sinovuyo_teen.Q17 }}
                                 
                                                                           </div>
                                                                     <td>
@@ -411,8 +513,8 @@
                                     <div class="panel panel-info">
                                         <div style="background-color: rgb(17, 170, 170)" class="panel-heading">
                                             <div class="panel-heading-btn">
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
+                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-plus"></i></a>
                                             </div>                          
                                             <h4 style="color:bro" class="panel-title"><b> MY RELATIONSHIP WITH MY CAREGIVER </b></h4>                    
                                         </div>
@@ -507,8 +609,8 @@
                                     <div class="panel panel-info">
                                         <div style="background-color: rgb(17, 170, 170)" class="panel-heading">
                                             <div class="panel-heading-btn">
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
+                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-plus"></i></a>
                                             </div>                          
                                             <h4 style="color:bro" class="panel-title"><b> MY BEHAVIOUR </b></h4>                    
                                         </div>
@@ -572,8 +674,8 @@
                                     <div class="panel panel-info">
                                         <div style="background-color: rgb(17, 170, 170)" class="panel-heading">
                                             <div class="panel-heading-btn">
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
+                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-plus"></i></a>
                                             </div>                          
                                             <h4 style="color:bro" class="panel-title"><b> DISCIPLINE FROM MY CAREGIVER </b></h4>                    
                                         </div>
@@ -669,8 +771,8 @@
                                     <div class="panel panel-info">
                                         <div style="background-color: rgb(17, 170, 170)" class="panel-heading">
                                             <div class="panel-heading-btn">
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                                <!-- <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
+                                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-plus"></i></a>
                                             </div>                          
                                             <h4 style="color:bro" class="panel-title"><b>FEELING SAD</b></h4>                    
                                         </div>
@@ -764,20 +866,9 @@
 
                              
                         </div>
-                        <!-- end wizard step-2 -->
 
-                         <!-- begin wizard step-3 -->
-                         <div class="wizard-step-3">
-                            
-                         </div>
-                             <!-- begin wizard step-4 -->
-                        <div class="wizard-step-4">
-                            
-                            <!-- end wizard step-4 -->
-
-                             <!-- begin wizard step-5 -->
-                            
-                            <!-- end wizard step-5 -->
+                        
+                       
 
 
                     </div>
@@ -806,6 +897,7 @@
 </div>
 <!-- end row -->
 
+
 {% endblock %}
 
 {% block lazy_javascript_code %}
@@ -817,6 +909,16 @@
 <script src="{% static 'js/tag-it.js' %}"></script>
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/actions.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/calendar.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/admin/DateTimeShortcuts.js' %}"></script>
+
+
 
 <script>
         $( function() {
@@ -826,7 +928,7 @@
                 $("#wizard-dreamsform").bwizard();
             });
 
-        } );
+        } );        
 </script>
 
 {% endblock %}

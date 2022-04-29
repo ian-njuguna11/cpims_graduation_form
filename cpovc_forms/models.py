@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.db import models
 from django.utils import timezone
 import datetime
@@ -1430,3 +1431,59 @@ class NewGraduationMonitoring(models.Model):
     def __unicode__(self):
         return str(self.month_id)
 
+class SinovuyuTeenPreAndPostAssesment(models.Model):
+    assment_type = models.IntegerField(default=0)
+    # date_assment = models.CharField(max_length=256, blank=True)
+    
+class OVCPrevSinovyoTeenEvaluation(models.Model):
+    evaluation_id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
+    person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    ref_caregiver = models.ForeignKey(RegPerson, on_delete=models.CASCADE, related_name='preval_caregiver')
+    
+    bd_age = models.CharField(max_length=10)
+    bd_sex = models.CharField(max_length=10)
+    bd_read = models.CharField(max_length=10)
+    bd_education_level = models.CharField(max_length=10)
+    bd_class = models.CharField(max_length=10)
+    bd_bd_boarding_status = models.CharField(max_length=10)
+    bd_biological_children = models.CharField(max_length=10)
+    bd_live_bilogical_mother = models.CharField(max_length=10)
+    bd_live_biological_father = models.CharField(max_length=10)
+    bd_disability = models.CharField(max_length=10)
+    bd_money_essentials = models.CharField(max_length=10)
+    bd_violence = models.CharField(max_length=10)
+    bd_adult_unwell = models.CharField(max_length=10)
+    bd_child_unwell = models.CharField(max_length=10)
+    bd_miss_school = models.CharField(max_length=10)
+    bd_hiv_status = models.CharField(max_length=10)
+    bd_hiv_prevention = models.CharField(max_length=10)
+    bd_two_meals = models.CharField(max_length=10)
+    bd_missing_meal = models.CharField(max_length=10)
+    rc_discuss_child_needs = models.CharField(max_length=10)
+    rc_discipline = models.CharField(max_length=10)
+    rc_tells_bothering = models.CharField(max_length=10)
+    rc_involve_decisions = models.CharField(max_length=10)
+    cb_child_obedient = models.CharField(max_length=10)
+    cb_figths_children = models.CharField(max_length=10)
+    dc_often_discipline = models.CharField(max_length=10)
+    dc_physical_discipline = models.CharField(max_length=10)
+    dc_upset_child = models.CharField(max_length=10)
+    sp_physical_punish = models.CharField(max_length=10)
+    fs_unhappy = models.CharField(max_length=10)
+    fs_too_tired = models.CharField(max_length=10)
+    fs_hopeful = models.CharField(max_length=10)
+    # event = models.ForeignKey(OVCPreventiveEvents, on_delete=models.CASCADE)
+    fmp_pre_grouping_id = models.UUIDField(default=uuid.uuid1, editable=False)
+    timestamp_created = models.DateTimeField(default=timezone.now)
+    timestamp_updated = models.DateTimeField(default=timezone.now)
+    is_void = models.BooleanField(default=False)
+    sync_id = models.UUIDField(default=uuid.uuid1, editable=False)
+    
+
+    class Meta:
+        db_table = 'ovc_prev_sinovuyo_teen_evaluation'
+        
+    def __unicode__(self):
+            return str(self.evaluation_id)
+
+    

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
      'cpovc_manage',
      'notifications',
      'cpovc_help',
+     'bootstrap_datepicker_plus',
 ]
 
 # MIDDLEWARE = (
