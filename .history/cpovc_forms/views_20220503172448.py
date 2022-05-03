@@ -10132,7 +10132,7 @@ def sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request, id):
     house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
     
     event = OVCPreventiveEvents.objects.filter(person_id=id).values_list('event')
-    sinivuyo_teen = OVCPrevSinovyoTeenEvaluation.objects.filter(event_id__in=event).exclude(is_void = True).order_by('assessment_date')
+    sinivuyo_teen = OVCPrevSinovyoTeenEvaluation.objects.filter(event_id__in=event).order_by('assessment_date')
     # for teen in sinivuyo_teen:
     #     teen
     #     pass 
@@ -10263,12 +10263,12 @@ def delete_sinovuyoteenformrequest(request):
     # child = RegPerson.objects.get(id=id)
     id = request.GET['evaluation_id']    
     sinivuyo_teen = OVCPrevSinovyoTeenEvaluation.objects.get(evaluation_id=id)
+    pdb.set_trace()
     days = (date.today() -sinivuyo_teen.assessment_date).days
     if days > 60:
         return JsonResponse({'out_of_date':True, 'days':days})
     
-    # sinivuyo_teen.delete()
-    OVCPrevSinovyoTeenEvaluation.objects.filter(evaluation_id=id).update(is_void = True)
+    sinivuyo_teen.delete()
     data = {
         'delete':  True
     }

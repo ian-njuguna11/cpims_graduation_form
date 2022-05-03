@@ -10268,7 +10268,7 @@ def delete_sinovuyoteenformrequest(request):
         return JsonResponse({'out_of_date':True, 'days':days})
     
     # sinivuyo_teen.delete()
-    OVCPrevSinovyoTeenEvaluation.objects.filter(evaluation_id=id).update(is_void = True)
+    OVCPrevSinovyoTeenEvaluation.objects.get(evaluation_id=id).update(is_void = True)
     data = {
         'delete':  True
     }
