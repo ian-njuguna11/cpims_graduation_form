@@ -125,6 +125,7 @@
 			<!-- end sidebar scrollbar -->
 		</div>
 		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
 	
 		<!-- begin #content -->
 		<div id="content" class="content">
@@ -191,7 +192,11 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div> 
+		<div  id="footer" class="footer"> {{ status }} &nbsp; &copy; {% now "Y" %}. All Rights Reserved. Version: 
+			2.0.0
+			<span class="promo"><img src="{% static 'img/logo_private.png' %}" height="60"></span>
+			</div>       
 		
 		<!-- begin scroll to top btn -->
 		<a href="#" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -328,9 +333,4 @@
     </script>
     <!-- ================== END LAZY PAGE LEVEL JS ================== -->
 </body>
-	<!-- end #sidebar -->
-	<div style="margin-top: -90px;" id="footer" class="footer"> {{ status }} &nbsp; &copy; {% now "Y" %}. All Rights Reserved. Version: 
-        2.0.0
-        <span class="promo"><img src="{% static 'img/logo_private.png' %}" height="60"></span>
-		</div>
 </html>

@@ -10266,7 +10266,7 @@ def delete_sinovuyoteenformrequest(request):
     
     days = (date.today() -sinivuyo_teen.assessment_date).days
     if days > 60:
-        return JsonResponse({'out_of_date':True, 'days':days})
+        return JsonResponse({'out_of_date':days})
     
     sinivuyo_teen.delete()
     data = {

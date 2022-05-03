@@ -10263,10 +10263,7 @@ def delete_sinovuyoteenformrequest(request):
     # child = RegPerson.objects.get(id=id)
     id = request.GET['evaluation_id']    
     sinivuyo_teen = OVCPrevSinovyoTeenEvaluation.objects.get(evaluation_id=id)
-    
-    days = (date.today() -sinivuyo_teen.assessment_date).days
-    if days > 60:
-        return JsonResponse({'out_of_date':True, 'days':days})
+    pdb.set_trace()
     
     sinivuyo_teen.delete()
     data = {

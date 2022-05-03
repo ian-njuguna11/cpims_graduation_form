@@ -1172,8 +1172,14 @@ so please try your best. There are no right or wrong answers. Please say how oft
                                                                         <td>{{ data.bd_age }} YRS </td>
                                                                         <td>{{ data.assessment_date }}</td>
                                                                         <td>
+                                                                            days {{ (date_today|data.assessment_date ).days }}
 
-                                                                            {{ data.assessment_date|timesince:date_today  }}
+
+                                                                            <!-- {% if date_today|timeuntil:data.assessment_date > date_today|timeuntil:data.assessment_date   %}
+                                                                                
+                                                                            {% else %}
+                                                                                
+                                                                            {% endif %} -->
 
                                                                         </td>
                                                                         <!-- onClick="deleteEvaluation('{{data.evaluation_id}}')" -->
@@ -1258,28 +1264,6 @@ so please try your best. There are no right or wrong answers. Please say how oft
                     <!-- end row -->
 
                     <!-- Modal -->
-                                                         <!-- Modal -->
-                                                         <div class="modal fade" id="outOfWindow" role="dialog">
-                                                            <div style="width: 340px;" class="modal-dialog modal-sm">
-                                                            <div class="modal-content">
-                                                                <div style="background-color: rgb(130, 222, 0)" class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                <h4 style="color: whitesmoke;" class="modal-title">Can not delete Event Entry...</h4>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                <p  >This item can not be deleted. because it is out of delete window  </p>
-
-                                              
-                                                                <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                                                                </div>
-                                                                <!-- <div style="background-color: rgb(17, 170, 170)" class="modal-footer">
-                                                                
-                                                                </div> -->
-                                                            </div>
-                                                            </div>
-                                                        </div>
-
                     
 
 
@@ -1321,13 +1305,6 @@ so please try your best. There are no right or wrong answers. Please say how oft
                                     if (data.delete) {
                                         console.log(data);
                                         $("#tableData #evaluation-" + evaluation_id).remove();
-                                    }
-
-                                    if(data.out_of_date){
-                                        console.log(data.days)
-                                        console.log("Out of response window")
-                                        $("#outOfWindow").modal('show');
-
                                     }
                                 },
                                 error: function(error){

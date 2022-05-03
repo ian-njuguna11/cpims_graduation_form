@@ -10138,14 +10138,14 @@ def sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request, id):
     #     pass 
     # pdb.set_trace()
     
-    # pdb.set_trace()
-    date_today =  date.today()
+    pdb.set_trace()
+    days =  (date.today()-sinivuyo_teen.assessment_date).days
     return render(request=request, template_name='forms/new_sinovuyoteen.html', context={
         'child': child,
         'sinovuyo_teen':sinovuyoteen,
         'care_giver': care_giver,
         'house_hold': house_hold,
-        'date_today': date_today,
+        'days': days,
         'sinavuyo_teen_evaluation': sinivuyo_teen
     })
     
@@ -10263,12 +10263,8 @@ def delete_sinovuyoteenformrequest(request):
     # child = RegPerson.objects.get(id=id)
     id = request.GET['evaluation_id']    
     sinivuyo_teen = OVCPrevSinovyoTeenEvaluation.objects.get(evaluation_id=id)
-    
-    days = (date.today() -sinivuyo_teen.assessment_date).days
-    if days > 60:
-        return JsonResponse({'out_of_date':True, 'days':days})
-    
     sinivuyo_teen.delete()
+    # pdb.set_trace()
     data = {
         'delete':  True
     }

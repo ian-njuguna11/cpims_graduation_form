@@ -125,7 +125,11 @@
 			<!-- end sidebar scrollbar -->
 		</div>
 		<div class="sidebar-bg"></div>
-	
+		<!-- end #sidebar -->
+		<div style="margin-top: 330px;" id="footer" class="footer"> {{ status }} &nbsp; &copy; {% now "Y" %}. All Rights Reserved. Version: 
+			2.0.0
+			<span class="promo"><img src="{% static 'img/logo_private.png' %}" height="60"></span>
+			</div>
 		<!-- begin #content -->
 		<div id="content" class="content">
             <div id ="internet_check" class="alert-info">You are now online</div>
@@ -328,9 +332,4 @@
     </script>
     <!-- ================== END LAZY PAGE LEVEL JS ================== -->
 </body>
-	<!-- end #sidebar -->
-	<div style="margin-top: -90px;" id="footer" class="footer"> {{ status }} &nbsp; &copy; {% now "Y" %}. All Rights Reserved. Version: 
-        2.0.0
-        <span class="promo"><img src="{% static 'img/logo_private.png' %}" height="60"></span>
-		</div>
 </html>
