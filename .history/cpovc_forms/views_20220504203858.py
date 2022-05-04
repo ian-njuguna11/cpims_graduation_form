@@ -10315,6 +10315,6 @@ def new_sinovuyoteenPreview(request):
         'fs_hopeful' : sinivuyo_teen.fs_hopeful     
     }
     form = SinovuyoteenPreAndPostAssesmnetRevisedFinalDraftFormEdit(data=sinivuyo_teen_data)
-    return JsonResponse(dict(sinivuyo_teen_data))
+    return JsonResponse(dict(fsinivuyo_teen_dataorm))
     pdb.set_trace()
 

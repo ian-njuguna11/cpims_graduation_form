@@ -10314,7 +10314,6 @@ def new_sinovuyoteenPreview(request):
         'fs_too_tired' : sinivuyo_teen.fs_too_tired,
         'fs_hopeful' : sinivuyo_teen.fs_hopeful     
     }
-    form = SinovuyoteenPreAndPostAssesmnetRevisedFinalDraftFormEdit(data=sinivuyo_teen_data)
-    return JsonResponse(dict(sinivuyo_teen_data))
+    return JsonResponse(sinivuyo_teen_data)
     pdb.set_trace()
 

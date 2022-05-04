@@ -10119,7 +10119,7 @@ def sinovuyoteenPreAndPostAssesmnetRevisedFinalDraft(request, id):
             
             
             # pdb.set_trace()
-            messages.success(request, "Form Saved Successfully!")
+            messages.success(request, "Form Saved Successfully!  We are done! Thank you for sharing this information with us. We really value you and appreciate you for taking part in this interview.")
         else:
             messages.error(request, 'Error saving form!')
         
@@ -10274,47 +10274,27 @@ def delete_sinovuyoteenformrequest(request):
     }
     return JsonResponse(data)
         
-def new_sinovuyoteenPreview(request): 
-    import pdb
-    id = request.GET['evaluation_id']
-    sinivuyo_teen = OVCPrevSinovyoTeenEvaluation.objects.get(evaluation_id=id)
-    sinivuyo_teen_data = {
-        'ASSESSMENT_TYPE':sinivuyo_teen.ASSESSMENT_TYPE,
-        'assessment_date': sinivuyo_teen.assessment_date,
-        'bd_age' : sinivuyo_teen.bd_age,
-        'bd_sex' : sinivuyo_teen.bd_sex ,
-        'bd_read' : sinivuyo_teen.bd_read, 
-        'bd_education_level' : sinivuyo_teen.bd_education_level, 
-        'bd_class' : sinivuyo_teen.bd_class, 
-        'bd_bd_boarding_status' : sinivuyo_teen.bd_bd_boarding_status,
-        'bd_biological_children' : sinivuyo_teen.bd_biological_children,
-        'bd_live_bilogical_mother' : sinivuyo_teen.bd_live_bilogical_mother,
-        'bd_live_biological_father' : sinivuyo_teen.bd_live_biological_father,
-        'bd_disability' : sinivuyo_teen.bd_disability ,
-        'bd_money_essentials' : sinivuyo_teen.bd_money_essentials,
-        'bd_violence' : sinivuyo_teen.bd_violence,
-        'bd_adult_unwell' : sinivuyo_teen.bd_adult_unwell ,
-        'bd_child_unwell' : sinivuyo_teen.bd_child_unwell ,
-        'bd_miss_school' : sinivuyo_teen.bd_miss_school,
-        'bd_hiv_status' : sinivuyo_teen.bd_hiv_status,
-        'bd_hiv_prevention' : sinivuyo_teen.bd_hiv_prevention,
-        'bd_two_meals' : sinivuyo_teen.bd_two_meals,
-        'bd_missing_meal' : sinivuyo_teen.bd_missing_meal,
-        'rc_discuss_child_needs' : sinivuyo_teen.rc_discuss_child_needs,
-        'rc_discipline' : sinivuyo_teen.rc_discipline,
-        'rc_tells_bothering' : sinivuyo_teen.rc_tells_bothering,
-        'rc_involve_decisions' : sinivuyo_teen.rc_involve_decisions,
-        'cb_child_obedient' : sinivuyo_teen.cb_child_obedient,
-        'cb_figths_children' : sinivuyo_teen.cb_figths_children ,
-        'dc_often_discipline' : sinivuyo_teen.dc_often_discipline,
-        'dc_physical_discipline' : sinivuyo_teen.dc_physical_discipline,
-        'dc_upset_child' : sinivuyo_teen.dc_upset_child,
-        'sp_physical_punish' : sinivuyo_teen.sp_physical_punish,
-        'fs_unhappy' : sinivuyo_teen.fs_unhappy,
-        'fs_too_tired' : sinivuyo_teen.fs_too_tired,
-        'fs_hopeful' : sinivuyo_teen.fs_hopeful     
-    }
-    form = SinovuyoteenPreAndPostAssesmnetRevisedFinalDraftFormEdit(data=sinivuyo_teen_data)
-    return JsonResponse(dict(sinivuyo_teen_data))
-    pdb.set_trace()
+# def create_view(request, id):
+#     # dictionary for initial data with
+#     # field names as keys
+#     context ={}
+ 
+#     # add the dictionary during initialization
+#     form = GeeksForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+         
+#     context['form']= form
+#     return render(request, "forms/create_view.html", context)
+
+
+# def list_view(request):
+#     # dictionary for initial data with
+#     # field names as keys
+#     context ={}
+ 
+#     # add the dictionary during initialization
+#     context["dataset"] = GeeksModel.objects.all()
+         
+#     return render(request, "forms/list_view.html", context)
 

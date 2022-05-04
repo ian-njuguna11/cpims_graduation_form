@@ -1178,7 +1178,7 @@ so please try your best. There are no right or wrong answers. Please say how oft
                                                                             <a href="{% url 'new_sinovuyoteen_form_edit' data.evaluation_id%}"><button type="button" class="btn btn-sm btn-primary m-r-5"><i class="fa fa-pencil"></i>&nbsp;Edit</button></a>
                                                                         {% comment %} <input id='data_id_jx' typ="text"  value=""  hidden/> {% endcomment %}
                                                                         <a><button  type="button" class="btn btn-sm btn-danger m-r-5" data-toggle="modal" data-target="#evaluation-{{data.evaluation_id}}"><i class="fa fa-trash"></i>&nbsp;Delete</button></a>
-                                                                        <a><button   type="button" class="btn btn-sm btn-success m-r-5" data-toggle="modal" data-target="#previewAsses-{{data.evaluation_id}}"><i class="fa-solid fa-file-circle-info"></i>&nbsp;Preview Assessment</button></a>
+                                                                        <a><button   type="button" class="btn btn-sm btn-success m-r-5" data-toggle="modal" data-target="#evaluation-{{data.evaluation_id}}"><i class="fa-solid fa-file-circle-info"></i>&nbsp;Preview Assessment</button></a>
                                                                         </td >
                                                                         <!-- onclick="previewAssesmentInstance('{{ data.evaluation_id }}')" -->
                                                                     </tr>
@@ -1214,11 +1214,7 @@ so please try your best. There are no right or wrong answers. Please say how oft
                                                                                     <h4 style="color: whitesmoke;" class="modal-title">Teen Preview Assessment Event...</h4>
                                                                                     </div>
                                                                                     <div class="modal-body">
-                                                                                    <p>Type of assessment: {{ data.ASSESSMENT_TYPE }} </p>
-                                                                                    <p>Assessment Date: {{ data.assessment_date }} </p>
-                                                                                    <p>Teen Age: {{ data.bd_age }} </p>
-                                                                                    <p>Sex: {{ data.bd_sex }} </p>
-                                                                                    <p>Can you Read: {{ data.bd_read }} </p>
+                                                                                    <p id="ajx_assmnt_type">Type of assessment: </p>
 
                                                                     
                                                                                     <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>

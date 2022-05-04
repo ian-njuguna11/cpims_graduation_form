@@ -10278,9 +10278,11 @@ def new_sinovuyoteenPreview(request):
     import pdb
     id = request.GET['evaluation_id']
     sinivuyo_teen = OVCPrevSinovyoTeenEvaluation.objects.get(evaluation_id=id)
-    sinivuyo_teen_data = {
+    sinivuyo_teen_data = { 
+        'person' : sinivuyo_teen.person,
         'ASSESSMENT_TYPE':sinivuyo_teen.ASSESSMENT_TYPE,
         'assessment_date': sinivuyo_teen.assessment_date,
+        'ref_caregiver' : sinivuyo_teen.ref_caregiver,
         'bd_age' : sinivuyo_teen.bd_age,
         'bd_sex' : sinivuyo_teen.bd_sex ,
         'bd_read' : sinivuyo_teen.bd_read, 
@@ -10314,7 +10316,5 @@ def new_sinovuyoteenPreview(request):
         'fs_too_tired' : sinivuyo_teen.fs_too_tired,
         'fs_hopeful' : sinivuyo_teen.fs_hopeful     
     }
-    form = SinovuyoteenPreAndPostAssesmnetRevisedFinalDraftFormEdit(data=sinivuyo_teen_data)
-    return JsonResponse(dict(sinivuyo_teen_data))
     pdb.set_trace()
 
